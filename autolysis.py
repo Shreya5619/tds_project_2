@@ -4,23 +4,21 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib
 import httpx
+import argparse
 
 matplotlib.use("Agg")  # Use a non-interactive backend
 
 # Set up the API key and proxy URL
 AIPROXY_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIzZjIwMDI3NDJAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.TX-jkduQcB-9rTWd5rETbcSzqyPe9qUZsxhjMUnZWkM"
 
-# List of CSV files to process
-CSV_FILES = ["goodreads/goodreads.csv", "happiness/happiness.csv", "media/media.csv"]
-
-# Process Each CSV File
-for csv_file in CSV_FILES:
+# Function to process a single CSV file
+def process_csv(csv_file):
     try:
         # Try reading the dataset with different encoding
         data = pd.read_csv(csv_file, encoding='ISO-8859-1')
     except UnicodeDecodeError:
         print(f"Error: Unable to read {csv_file} due to encoding issues.")
-        continue  # Skip to the next file if encoding fails
+        return  # Skip if encoding fails
 
     print(data.columns)
     print(data.head())
@@ -125,4 +123,13 @@ for csv_file in CSV_FILES:
 
     print(f"Finished processing {csv_file}. Results saved for {csv_file}.\n")
 
-print("Processing complete for all datasets.")
+# Main script entry point
+if __name__ == "__main__":
+    # Parse command-line argument for CSV file
+    parser = argparse.ArgumentParser(description="Process a CSV file for data analysis.")
+    parser.add_argument("csv_file", help="Path to the CSV file to process.")
+    args = parser.parse_args()
+
+    process_csv(args.csv_file)
+
+    print("Processing complete for the dataset.")
