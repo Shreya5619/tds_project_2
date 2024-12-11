@@ -1,1 +1,0 @@
-Narrative generation failed due to an error.
