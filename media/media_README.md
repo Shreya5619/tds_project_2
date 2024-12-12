@@ -1,7 +1,32 @@
 # Data Analysis Report for Media/media.csv
 ## Summary
-To create a comprehensive summary of the dataset "media/media.csv," I'll outline the structure and typical key statistics and findings one might expect based on standard media-related datasets. However, since I don't have the actual dataset, I'll provide a template that you can adjust according to the specific details of your data.
+report_prompt = f"""
+Create a detailed data analysis summary for the dataset {csv_file}. Include the following sections:
+1. **Overview**: Describe the dataset, including the number of rows, columns, and key variables.
+2. **Key Statistics**:
+    - Summary statistics for numeric columns (e.g., mean, median, standard deviation, etc.).
+    - Unique value counts for categorical columns.
+    - Detection of any missing or null values and how they are distributed across the columns.
+3. **Trends and Insights**:
+    - Analyze any trends over time (if a 'Date' or similar time-related column exists). Provide insights on how the data evolves across time.
+    - Identify top-performing categories or groups, based on relevant metrics (e.g., views, engagement, sales).
+4. **Correlation Analysis**:
+    - Analyze the correlation between numeric variables and identify any strong correlations that might offer insights into relationships between features.
+5. **Visual Insights**: Provide a description of what each visualization (such as correlation heatmap, trends, or category performance) indicates.
+6. **Key Recommendations**:
+    - Based on the data, what are some actionable insights or next steps that can be taken?
+    - Suggest any further analysis that could be helpful (e.g., advanced statistical analysis, forecasting, segmentation).
 
+Provide a concise yet thorough summary that highlights important findings, and structure the README as follows:
+
+## Summary of Dataset
+### 1. Overview
+### 2. Key Statistics
+### 3. Trends and Insights
+### 4. Correlation Analysis
+### 5. Visual Insights
+### 6. Recommendations
+"""
 ### Summary of Dataset: media/media.csv
 
 #### Overview of Key Statistics
