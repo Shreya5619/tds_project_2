@@ -1,15 +1,16 @@
+import os
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib
 import httpx
 import argparse
-import os
+
 # Use a non-interactive backend to save plots without needing GUI interaction
 matplotlib.use("Agg")  
 
 # Set up the API key and proxy URL (This should be securely stored, for demo purposes it's here)
-AIPROXY_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIzZjIwMDI3NDJAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.TX-jkduQcB-9rTWd5rETbcSzqyPe9qUZsxhjMUnZWkM"
+AIPROXY_TOKEN = os.environ["AIPROXY_TOKEN"]
 
 # Define the API URL and headers (Always use defined headers for secure and reusable code)
 API_URL = "https://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
@@ -175,5 +176,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     process_csv(args.csv_file)
+
 
     print("Processing complete.")
