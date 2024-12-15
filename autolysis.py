@@ -10,7 +10,10 @@ import argparse
 matplotlib.use("Agg")  
 
 # Set up the API key and proxy URL (This should be securely stored, for demo purposes it's here)
-AIPROXY_TOKEN = os.environ["AIPROXY_TOKEN"]
+try:
+    AIPROXY_TOKEN = os.environ["AIPROXY_TOKEN"]
+except KeyError:
+    print("Error: AIPROXY_TOKEN is not set in the environment!")
 
 # Define the API URL and headers (Always use defined headers for secure and reusable code)
 API_URL = "https://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
