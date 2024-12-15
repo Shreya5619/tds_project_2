@@ -6,6 +6,7 @@
 #     "matplotlib",
 #     "python-dotenv",
 #     "argparse",
+#     "seaborn"
 # ]
 # ///
 
