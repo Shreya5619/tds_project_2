@@ -1,3 +1,14 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "httpx",
+#     "pandas",
+#     "matplotlib",
+#     "python-dotenv",
+#     "argparse",
+# ]
+# ///
+
 import os
 import pandas as pd
 import seaborn as sns
@@ -82,7 +93,7 @@ def save_report(csv_file, summary):
     Save the AI-generated report to a markdown file.
     This ensures the output is both user-readable and structured.
     """
-    report_filename = f"{os.path.splitext(csv_file)[0]}_README.md"
+    report_filename = f"README.md"
     with open(report_filename, "w") as f:
         f.write(f"# Data Analysis Report for {csv_file.capitalize()}\n")
         f.write("## Summary\n")
